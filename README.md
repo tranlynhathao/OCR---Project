@@ -1,6 +1,6 @@
 # Optical Character Recognition (OCR) Project
 
-![OCR Demo](demo.gif)
+![OCR Demo](image.png)
 
 ## Introduction
 
