@@ -33,7 +33,9 @@ This repository contains the source code for an Optical Character Recognition (O
     pip install -r requirements.txt
     ```
 
-4. Run the application:
+4. To adjust the workspace directory in the ```app.py``` and ```deeplearning.py``` files, you need to modify the paths where necessary.
+
+5. Run the application:
 
     ```bash
     python app.py
