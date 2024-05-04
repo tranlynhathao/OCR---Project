@@ -9,7 +9,7 @@ import numpy as np
 app = Flask(__name__)
 
 BASE_PATH = os.getcwd()
-UPLOAD_PATH = os.path.join(BASE_PATH, '/Users/tranlynhathao/Desktop/Automatic-License-Plate-Detection/WebbApp/static/upload')
+UPLOAD_PATH = os.path.join(BASE_PATH, '/Path/to/WebbApp/static/upload')
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -26,9 +26,9 @@ def index():
 
         text = OCR(resized_image_path, filename)
 
-        return render_template('index.html', upload=True, upload_image=filename, text=text)
+        return render_template('/templates/index.html', upload=True, upload_image=filename, text=text)
 
-    return render_template('index.html', upload=False)
+    return render_template('/templates/index.html', upload=False)
 
 
 def resize_image(input_path, output_path, target_size):

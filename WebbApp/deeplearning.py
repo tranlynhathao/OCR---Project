@@ -117,7 +117,7 @@ from tensorflow.keras.preprocessing.image import load_img, img_to_array
 import pytesseract as pt
 from PIL import Image
 from tensorflow.keras.preprocessing.image import img_to_array, array_to_img
-MODEL_PATH = "/Users/tranlynhathao/Desktop/Automatic-License-Plate-Detection/WebbApp/object_detection/"
+MODEL_PATH = "/Path/to/WebbApp/object_detection/"
 model = tf.keras.models.load_model(MODEL_PATH)
 
 try:
@@ -154,13 +154,13 @@ def object_detection(path, filename):
     # Convert into bgr
     image_bgr = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
     cv2.imwrite(
-        '/Users/tranlynhathao/Desktop/Automatic-License-Plate-Detection/WebbApp/static/predict/{}'.format(filename), image_bgr)
+        '/Path/to/WebbApp/static/predict/{}'.format(filename), image_bgr)
     return coords
 
 
 def save_text(filename, text):
     name, ext = os.path.splitext(filename)
-    with open('/Users/tranlynhathao/Desktop/Automatic-License-Plate-Detection/WebbApp/static/predict/{}.txt'.format(name), mode='w') as f:
+    with open('/Path/to/WebbApp/static/predict/{}.txt'.format(name), mode='w') as f:
         f.write(text)
     f.close()
 
@@ -172,7 +172,7 @@ def OCR(image_path, filename):
     pil_image = Image.fromarray(img)
 
     # Save the PIL Image to a temporary file
-    temp_path = '/Users/tranlynhathao/Desktop/Automatic-License-Plate-Detection/WebbApp/static/upload/{}.jpeg'  # Provide an actual path
+    temp_path = '/Path/to/WebbApp/static/upload/{}.jpeg'  # Provide an actual path
     pil_image.save(temp_path)
 
     cods = object_detection(temp_path, filename)
@@ -182,7 +182,7 @@ def OCR(image_path, filename):
     gray = cv2.cvtColor(roi_bgr, cv2.COLOR_BGR2GRAY)
     magic_color = apply_brightness_contrast(gray, brightness=40, contrast=70)
     cv2.imwrite(
-        '/Users/tranlynhathao/Desktop/Automatic-License-Plate-Detection/WebbApp/static/roi/{}'.format(filename), roi_bgr)
+        '/Path/to/WebbApp/static/roi/{}'.format(filename), roi_bgr)
 
     text = pt.image_to_string(magic_color, lang='eng', config='--psm 6')
     print(text)
