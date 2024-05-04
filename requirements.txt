@@ -1,0 +1,6 @@
+opencv-python==4.5.4.60
+numpy==1.21.4
+matplotlib==3.4.3
+tesseract==0.3.8
+pytesseract==0.3.8
+tensorflow==2.7.0
